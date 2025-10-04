@@ -1,4 +1,5 @@
 #include "libtslog.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -13,7 +14,7 @@ logger_t* tslog_init(const char *filename) {
         return NULL;
     }
     
-    // Abre arquivo
+    // Abre arquivo (cria se não existir no WSL)
     logger->file = fopen(filename, "a");
     if (!logger->file) {
         pthread_mutex_destroy(&logger->mutex);

@@ -1,58 +1,60 @@
-# Makefile simples para o logger
-CC=gcc
-CFLAGS=-Wall -std=c99 -pthread
-LDFLAGS=-pthread
+CC = gcc
+CFLAGS = -Wall -pthread -g
+LDFLAGS = -pthread
 
-# Arquivos
-LIB_SRC=libtslog.c
-LIB_OBJ=libtslog.o
-LIB=libtslog.a
+# Objetos
+LOGGER_OBJ = libtslog.o
+SERVER_OBJ = web_server.o
+CLIENT_OBJ = web_client.o
 
-TEST_SRC=test_logger.c
-TEST_BIN=test_logger
+# Executáveis
+SERVER = web_server
+CLIENT = web_client
 
-# Regra padrão
-all: $(LIB) $(TEST_BIN)
+all: $(SERVER) $(CLIENT)
 
-# Compila biblioteca
-$(LIB): $(LIB_OBJ)
-	ar rcs $@ $^
+# Logger library
+libtslog.o: libtslog.c libtslog.h
+	$(CC) $(CFLAGS) -c libtslog.c -o libtslog.o
 
-$(LIB_OBJ): $(LIB_SRC) libtslog.h
-	$(CC) $(CFLAGS) -c $< -o $@
+# Servidor
+$(SERVER): $(SERVER_OBJ) $(LOGGER_OBJ)
+	$(CC) $(SERVER_OBJ) $(LOGGER_OBJ) -o $(SERVER) $(LDFLAGS)
 
-# Compila teste
-$(TEST_BIN): $(TEST_SRC) $(LIB)
-	$(CC) $(CFLAGS) $< -L. -ltslog $(LDFLAGS) -o $@
+web_server.o: web_server.c libtslog.h
+	$(CC) $(CFLAGS) -c web_server.c -o web_server.o
 
-# Executa teste
-test: $(TEST_BIN)
-	@echo "=== Teste básico ==="
-	./$(TEST_BIN) basic.log 2
+# Cliente
+$(CLIENT): $(CLIENT_OBJ)
+	$(CC) $(CLIENT_OBJ) -o $(CLIENT)
+
+web_client.o: web_client.c
+	$(CC) $(CFLAGS) -c web_client.c -o web_client.o
+
+# Testes
+test: all
+	@echo "=== Como Testar ==="
 	@echo ""
-	@echo "=== Teste com mais threads ==="
-	./$(TEST_BIN) multi.log 4
-
-# Mostra logs
-show-logs:
-	@echo "=== Logs disponíveis ==="
-	@ls -la *.log 2>/dev/null || echo "Nenhum log encontrado"
+	@echo "1. Em um terminal, inicie o servidor:"
+	@echo "   ./$(SERVER)"
 	@echo ""
-	@if [ -f basic.log ]; then echo "=== basic.log ==="; cat basic.log; echo ""; fi
+	@echo "2. Em outro terminal, teste com o cliente:"
+	@echo "   ./$(CLIENT) /"
+	@echo "   ./$(CLIENT) /stats"
+	@echo "   ./$(CLIENT) /about"
+	@echo ""
+	@echo "3. Ou use curl:"
+	@echo "   curl http://localhost:8080/"
+	@echo "   curl http://localhost:8080/stats"
+	@echo ""
+	@echo "4. Teste automatizado com multiplos clientes:"
+	@echo "   chmod +x test_web.sh"
+	@echo "   ./test_web.sh"
+	@echo ""
+	@echo "5. Ver logs em tempo real:"
+	@echo "   tail -f web_server.log"
 
-# Limpa tudo
 clean:
-	rm -f *.o *.a $(TEST_BIN) *.log
+	rm -f $(SERVER) $(CLIENT) *.o *.log
 
-# Help
-help:
-	@echo "Targets disponíveis:"
-	@echo "  all       - Compila tudo"
-	@echo "  test      - Executa testes"
-	@echo "  show-logs - Mostra logs gerados"
-	@echo "  clean     - Remove arquivos gerados"
-	@echo ""
-	@echo "Uso manual:"
-	@echo "  ./test_logger [arquivo.log] [num_threads]"
-
-.PHONY: all test show-logs clean help
+.PHONY: all test clean
