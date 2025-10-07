@@ -1,0 +1,81 @@
+[02:38:47] INFO: === Servidor iniciado ===
+[02:38:47] ERROR: Erro no bind porta 8080: Address already in use
+[02:38:50] INFO: === Servidor iniciado ===
+[02:38:50] INFO: Escutando na porta 5555
+[02:40:24] INFO: [REQ #1] GET /
+[02:40:24] INFO: [RES #1] 200 OK - /
+[02:42:09] INFO: [REQ #2] GET /
+[02:42:09] INFO: [RES #2] 200 OK - /
+[02:42:09] INFO: [REQ #3] GET /
+[02:42:09] INFO: [REQ #6] GET /
+[02:42:09] INFO: [REQ #5] GET /
+[02:42:09] INFO: [REQ #4] GET /
+[02:42:09] INFO: [RES #3] 200 OK - /
+[02:42:09] INFO: [RES #6] 200 OK - /
+[02:42:09] INFO: [REQ #7] GET /
+[02:42:09] INFO: [RES #5] 200 OK - /
+[02:42:09] INFO: [RES #4] 200 OK - /
+[02:42:09] INFO: [RES #7] 200 OK - /
+[02:42:09] INFO: [REQ #8] GET /stats
+[02:42:09] INFO: [REQ #9] GET /stats
+[02:42:09] INFO: [RES #8] 200 OK - /stats
+[02:42:09] INFO: [REQ #10] GET /stats
+[02:42:09] INFO: [RES #9] 200 OK - /stats
+[02:42:09] INFO: [REQ #11] GET /stats
+[02:42:09] INFO: [RES #10] 200 OK - /stats
+[02:42:09] INFO: [RES #11] 200 OK - /stats
+[02:42:09] INFO: [REQ #12] GET /stats
+[02:42:09] INFO: [RES #12] 200 OK - /stats
+[02:42:09] INFO: [REQ #13] GET /about
+[02:42:09] INFO: [RES #13] 200 OK - /about
+[02:42:09] INFO: [REQ #14] GET /about
+[02:42:09] INFO: [REQ #15] GET /about
+[02:42:09] INFO: [RES #14] 200 OK - /about
+[02:42:09] INFO: [REQ #16] GET /about
+[02:42:09] INFO: [RES #15] 200 OK - /about
+[02:42:09] INFO: [RES #16] 200 OK - /about
+[02:42:09] INFO: [REQ #17] GET /about
+[02:42:09] INFO: [RES #17] 200 OK - /about
+[02:42:09] INFO: [REQ #18] GET /naoexiste
+[02:42:09] INFO: [RES #18] 404 - /naoexiste
+[02:42:09] INFO: [REQ #19] GET /naoexiste
+[02:42:09] INFO: [RES #19] 404 - /naoexiste
+[02:42:09] INFO: [REQ #20] GET /naoexiste
+[02:42:09] INFO: [REQ #21] GET /naoexiste
+[02:42:09] INFO: [RES #20] 404 - /naoexiste
+[02:42:09] INFO: [RES #21] 404 - /naoexiste
+[02:42:09] INFO: [REQ #22] GET /naoexiste
+[02:42:09] INFO: [RES #22] 404 - /naoexiste
+[02:42:09] INFO: [REQ #23] GET /stats
+[02:42:09] INFO: [RES #23] 200 OK - /stats
+[02:51:34] INFO: [REQ #24] GET /stats
+[02:51:34] INFO: [RES #24] 200 OK - /stats
+[02:51:45] INFO: [REQ #25] GET /stats
+[02:51:45] INFO: [RES #25] 200 OK - /stats
+[02:51:46] INFO: [REQ #26] GET /stats
+[02:51:46] INFO: [RES #26] 200 OK - /stats
+[02:55:56] INFO: === Servidor iniciado ===
+[02:55:56] INFO: Criando pool com 10 threads...
+[02:55:56] INFO: Worker thread #1 iniciada
+[02:55:56] INFO: Worker thread #6 iniciada
+[02:55:56] INFO: Worker thread #3 iniciada
+[02:55:56] INFO: Worker thread #4 iniciada
+[02:55:56] INFO: Worker thread #5 iniciada
+[02:55:56] INFO: Worker thread #2 iniciada
+[02:55:56] INFO: Worker thread #7 iniciada
+[02:55:56] INFO: Worker thread #8 iniciada
+[02:55:56] INFO: Worker thread #9 iniciada
+[02:55:56] INFO: Worker thread #10 iniciada
+[02:55:56] INFO: Escutando em http://localhost:8080
+[02:57:03] INFO: [REQ #1] GET /stats
+[02:57:03] INFO: [RES #1] 404 Not Found - www/stats
+[02:57:28] INFO: [REQ #2] GET /about
+[02:57:28] INFO: [RES #2] 404 Not Found - www/about
+[02:57:32] INFO: [REQ #3] GET /
+[02:57:32] INFO: [RES #3] 200 OK - www/index.html
+[02:58:18] INFO: [REQ #4] GET /about
+[02:58:18] INFO: [RES #4] 404 Not Found - www/about
+[03:03:00] INFO: [REQ #5] GET /about.html
+[03:03:00] INFO: [RES #5] 200 OK - www/about.html
+[03:03:44] INFO: [REQ #6] GET /stats
+[03:03:44] INFO: [RES #6] 404 Not Found - www/stats

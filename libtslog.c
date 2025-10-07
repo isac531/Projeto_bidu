@@ -1,4 +1,5 @@
 #include "libtslog.h"
+#include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 #include <string.h>
@@ -61,5 +62,4 @@ void tslog_info(logger_t *logger, const char *message) {
 
 void tslog_error(logger_t *logger, const char *message) {
     write_log(logger, "ERROR", message);
-
 }
